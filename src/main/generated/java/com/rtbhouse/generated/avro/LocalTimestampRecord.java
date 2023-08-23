@@ -21,7 +21,6 @@ public class LocalTimestampRecord extends org.apache.avro.specific.SpecificRecor
   private static SpecificData MODEL$ = new SpecificData();
 static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.LocalTimestampMillisConversion());
   }
 
   private static final BinaryMessageEncoder<LocalTimestampRecord> ENCODER =
@@ -75,8 +74,8 @@ static {
     return DECODER.decode(b);
   }
 
-   private java.time.LocalDateTime nestedTimestamp;
-   private java.time.LocalDateTime nullableNestedTimestamp;
+   private long nestedTimestamp;
+   private java.lang.Long nullableNestedTimestamp;
    private java.lang.Object nullableUnionOfDateAndLocalTimestamp;
    private java.lang.Object unionOfDateAndLocalTimestamp;
 
@@ -94,7 +93,7 @@ static {
    * @param nullableUnionOfDateAndLocalTimestamp The new value for nullableUnionOfDateAndLocalTimestamp
    * @param unionOfDateAndLocalTimestamp The new value for unionOfDateAndLocalTimestamp
    */
-  public LocalTimestampRecord(java.time.LocalDateTime nestedTimestamp, java.time.LocalDateTime nullableNestedTimestamp, java.lang.Object nullableUnionOfDateAndLocalTimestamp, java.lang.Object unionOfDateAndLocalTimestamp) {
+  public LocalTimestampRecord(java.lang.Long nestedTimestamp, java.lang.Long nullableNestedTimestamp, java.lang.Object nullableUnionOfDateAndLocalTimestamp, java.lang.Object unionOfDateAndLocalTimestamp) {
     this.nestedTimestamp = nestedTimestamp;
     this.nullableNestedTimestamp = nullableNestedTimestamp;
     this.nullableUnionOfDateAndLocalTimestamp = nullableUnionOfDateAndLocalTimestamp;
@@ -116,7 +115,7 @@ static {
 
   private static final org.apache.avro.Conversion<?>[] conversions =
       new org.apache.avro.Conversion<?>[] {
-      new org.apache.avro.data.TimeConversions.LocalTimestampMillisConversion(),
+      null,
       null,
       null,
       null,
@@ -132,8 +131,8 @@ static {
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: nestedTimestamp = (java.time.LocalDateTime)value$; break;
-    case 1: nullableNestedTimestamp = (java.time.LocalDateTime)value$; break;
+    case 0: nestedTimestamp = (java.lang.Long)value$; break;
+    case 1: nullableNestedTimestamp = (java.lang.Long)value$; break;
     case 2: nullableUnionOfDateAndLocalTimestamp = value$; break;
     case 3: unionOfDateAndLocalTimestamp = value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
@@ -144,7 +143,7 @@ static {
    * Gets the value of the 'nestedTimestamp' field.
    * @return The value of the 'nestedTimestamp' field.
    */
-  public java.time.LocalDateTime getNestedTimestamp() {
+  public long getNestedTimestamp() {
     return nestedTimestamp;
   }
 
@@ -153,7 +152,7 @@ static {
    * Sets the value of the 'nestedTimestamp' field.
    * @param value the value to set.
    */
-  public void setNestedTimestamp(java.time.LocalDateTime value) {
+  public void setNestedTimestamp(long value) {
     this.nestedTimestamp = value;
   }
 
@@ -161,7 +160,7 @@ static {
    * Gets the value of the 'nullableNestedTimestamp' field.
    * @return The value of the 'nullableNestedTimestamp' field.
    */
-  public java.time.LocalDateTime getNullableNestedTimestamp() {
+  public java.lang.Long getNullableNestedTimestamp() {
     return nullableNestedTimestamp;
   }
 
@@ -170,7 +169,7 @@ static {
    * Sets the value of the 'nullableNestedTimestamp' field.
    * @param value the value to set.
    */
-  public void setNullableNestedTimestamp(java.time.LocalDateTime value) {
+  public void setNullableNestedTimestamp(java.lang.Long value) {
     this.nullableNestedTimestamp = value;
   }
 
@@ -249,8 +248,8 @@ static {
   public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<LocalTimestampRecord>
     implements org.apache.avro.data.RecordBuilder<LocalTimestampRecord> {
 
-    private java.time.LocalDateTime nestedTimestamp;
-    private java.time.LocalDateTime nullableNestedTimestamp;
+    private long nestedTimestamp;
+    private java.lang.Long nullableNestedTimestamp;
     private java.lang.Object nullableUnionOfDateAndLocalTimestamp;
     private java.lang.Object unionOfDateAndLocalTimestamp;
 
@@ -311,7 +310,7 @@ static {
       * Gets the value of the 'nestedTimestamp' field.
       * @return The value.
       */
-    public java.time.LocalDateTime getNestedTimestamp() {
+    public long getNestedTimestamp() {
       return nestedTimestamp;
     }
 
@@ -321,7 +320,7 @@ static {
       * @param value The value of 'nestedTimestamp'.
       * @return This builder.
       */
-    public com.rtbhouse.generated.avro.LocalTimestampRecord.Builder setNestedTimestamp(java.time.LocalDateTime value) {
+    public com.rtbhouse.generated.avro.LocalTimestampRecord.Builder setNestedTimestamp(long value) {
       validate(fields()[0], value);
       this.nestedTimestamp = value;
       fieldSetFlags()[0] = true;
@@ -350,7 +349,7 @@ static {
       * Gets the value of the 'nullableNestedTimestamp' field.
       * @return The value.
       */
-    public java.time.LocalDateTime getNullableNestedTimestamp() {
+    public java.lang.Long getNullableNestedTimestamp() {
       return nullableNestedTimestamp;
     }
 
@@ -360,7 +359,7 @@ static {
       * @param value The value of 'nullableNestedTimestamp'.
       * @return This builder.
       */
-    public com.rtbhouse.generated.avro.LocalTimestampRecord.Builder setNullableNestedTimestamp(java.time.LocalDateTime value) {
+    public com.rtbhouse.generated.avro.LocalTimestampRecord.Builder setNullableNestedTimestamp(java.lang.Long value) {
       validate(fields()[1], value);
       this.nullableNestedTimestamp = value;
       fieldSetFlags()[1] = true;
@@ -471,8 +470,8 @@ static {
     public LocalTimestampRecord build() {
       try {
         LocalTimestampRecord record = new LocalTimestampRecord();
-        record.nestedTimestamp = fieldSetFlags()[0] ? this.nestedTimestamp : (java.time.LocalDateTime) defaultValue(fields()[0]);
-        record.nullableNestedTimestamp = fieldSetFlags()[1] ? this.nullableNestedTimestamp : (java.time.LocalDateTime) defaultValue(fields()[1]);
+        record.nestedTimestamp = fieldSetFlags()[0] ? this.nestedTimestamp : (java.lang.Long) defaultValue(fields()[0]);
+        record.nullableNestedTimestamp = fieldSetFlags()[1] ? this.nullableNestedTimestamp : (java.lang.Long) defaultValue(fields()[1]);
         record.nullableUnionOfDateAndLocalTimestamp = fieldSetFlags()[2] ? this.nullableUnionOfDateAndLocalTimestamp :  defaultValue(fields()[2]);
         record.unionOfDateAndLocalTimestamp = fieldSetFlags()[3] ? this.unionOfDateAndLocalTimestamp :  defaultValue(fields()[3]);
         return record;

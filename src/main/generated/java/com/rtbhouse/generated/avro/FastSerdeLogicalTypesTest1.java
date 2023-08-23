@@ -23,7 +23,6 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
 static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.LocalTimestampMillisConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimeMillisConversion());
   }
 
@@ -1056,7 +1055,6 @@ static {
      * @param value The builder instance that must be set.
      * @return This builder.
      */
-
     public com.rtbhouse.generated.avro.FastSerdeLogicalTypesTest1.Builder setNestedLocalTimestampMillisBuilder(com.rtbhouse.generated.avro.LocalTimestampRecord.Builder value) {
       clearNestedLocalTimestampMillis();
       nestedLocalTimestampMillisBuilder = value;
