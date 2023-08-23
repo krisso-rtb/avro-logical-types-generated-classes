@@ -16,13 +16,11 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = 5789408449306021301L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FastSerdeLogicalTypesTest1\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used in tests to confirm fast-serde supports logical-types\",\"fields\":[{\"name\":\"unionOfArrayAndMap\",\"type\":[{\"type\":\"array\",\"items\":{\"type\":\"int\",\"logicalType\":\"time-millis\"}},{\"type\":\"map\",\"values\":{\"type\":\"int\",\"logicalType\":\"date\"},\"avro.java.string\":\"String\"}]},{\"name\":\"timestampMillisMap\",\"type\":{\"type\":\"map\",\"values\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"},\"avro.java.string\":\"String\"}},{\"name\":\"nullableArrayOfDates\",\"type\":[\"null\",{\"type\":\"array\",\"items\":{\"type\":\"int\",\"logicalType\":\"date\"}}],\"default\":null},{\"name\":\"arrayOfDates\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"int\",\"logicalType\":\"date\"}}},{\"name\":\"unionOfDecimalOrDate\",\"type\":[{\"type\":\"bytes\",\"logicalType\":\"decimal\",\"precision\":4,\"scale\":2},{\"type\":\"int\",\"logicalType\":\"date\"}]},{\"name\":\"uuidField\",\"type\":{\"type\":\"string\",\"logicalType\":\"uuid\"}},{\"name\":\"timestampMillisField\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}},{\"name\":\"timestampMicrosField\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"}},{\"name\":\"timeMillisField\",\"type\":{\"type\":\"int\",\"logicalType\":\"time-millis\"}},{\"name\":\"timeMicrosField\",\"type\":{\"type\":\"long\",\"logicalType\":\"time-micros\"}},{\"name\":\"dateField\",\"type\":{\"type\":\"int\",\"logicalType\":\"date\"}},{\"name\":\"nestedLocalTimestampMillis\",\"type\":{\"type\":\"record\",\"name\":\"LocalTimestampRecord\",\"fields\":[{\"name\":\"nestedTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}},{\"name\":\"nullableNestedTimestamp\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]},{\"name\":\"nullableUnionOfDateAndLocalTimestamp\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"},{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]},{\"name\":\"unionOfDateAndLocalTimestamp\",\"type\":[{\"type\":\"int\",\"logicalType\":\"date\"},{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
-  static {
+  private static SpecificData MODEL$ = new SpecificData();
+static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimeMicrosConversion());
@@ -83,18 +81,18 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
     return DECODER.decode(b);
   }
 
-  private java.lang.Object unionOfArrayAndMap;
-  private java.util.Map<java.lang.String,java.time.Instant> timestampMillisMap;
-  private java.util.List<java.time.LocalDate> nullableArrayOfDates;
-  private java.util.List<java.time.LocalDate> arrayOfDates;
-  private java.lang.Object unionOfDecimalOrDate;
-  private java.lang.String uuidField;
-  private java.time.Instant timestampMillisField;
-  private java.time.Instant timestampMicrosField;
-  private java.time.LocalTime timeMillisField;
-  private java.time.LocalTime timeMicrosField;
-  private java.time.LocalDate dateField;
-  private com.rtbhouse.generated.avro.LocalTimestampRecord nestedLocalTimestampMillis;
+   private java.lang.Object unionOfArrayAndMap;
+   private java.util.Map<java.lang.String,java.time.Instant> timestampMillisMap;
+   private java.util.List<java.time.LocalDate> nullableArrayOfDates;
+   private java.util.List<java.time.LocalDate> arrayOfDates;
+   private java.lang.Object unionOfDecimalOrDate;
+   private java.lang.String uuidField;
+   private java.time.Instant timestampMillisField;
+   private java.time.Instant timestampMicrosField;
+   private java.time.LocalTime timeMillisField;
+   private java.time.LocalTime timeMicrosField;
+   private java.time.LocalDate dateField;
+   private com.rtbhouse.generated.avro.LocalTimestampRecord nestedLocalTimestampMillis;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -457,7 +455,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -524,7 +522,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.FastSerdeLogicalTypesTest1 other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.unionOfArrayAndMap)) {
         this.unionOfArrayAndMap = data().deepCopy(fields()[0].schema(), other.unionOfArrayAndMap);
         fieldSetFlags()[0] = true;

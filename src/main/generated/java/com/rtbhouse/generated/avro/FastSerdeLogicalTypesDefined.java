@@ -16,13 +16,11 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -1314651545741572166L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FastSerdeLogicalTypesDefined\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used in tests to confirm fast-serde supports logical-types\",\"fields\":[{\"name\":\"timeMillisField\",\"type\":{\"type\":\"int\",\"logicalType\":\"time-millis\"}},{\"name\":\"dateField\",\"type\":{\"type\":\"int\",\"logicalType\":\"date\"}},{\"name\":\"arrayOfUnionOfDateAndTimestampMillis\",\"type\":{\"type\":\"array\",\"items\":[{\"type\":\"int\",\"logicalType\":\"date\"},{\"type\":\"long\",\"logicalType\":\"timestamp-millis\"}]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
-  static {
+  private static SpecificData MODEL$ = new SpecificData();
+static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimeMillisConversion());
@@ -79,9 +77,9 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
     return DECODER.decode(b);
   }
 
-  private java.time.LocalTime timeMillisField;
-  private java.time.LocalDate dateField;
-  private java.util.List<java.lang.Object> arrayOfUnionOfDateAndTimestampMillis;
+   private java.time.LocalTime timeMillisField;
+   private java.time.LocalDate dateField;
+   private java.util.List<java.lang.Object> arrayOfUnionOfDateAndTimestampMillis;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -236,7 +234,7 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -264,7 +262,7 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.FastSerdeLogicalTypesDefined other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.timeMillisField)) {
         this.timeMillisField = data().deepCopy(fields()[0].schema(), other.timeMillisField);
         fieldSetFlags()[0] = true;

@@ -15,13 +15,11 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class LocalTimestampRecord extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -9174653264658636386L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"LocalTimestampRecord\",\"namespace\":\"com.rtbhouse.generated.avro\",\"fields\":[{\"name\":\"nestedTimestamp\",\"type\":{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}},{\"name\":\"nullableNestedTimestamp\",\"type\":[\"null\",{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]},{\"name\":\"nullableUnionOfDateAndLocalTimestamp\",\"type\":[\"null\",{\"type\":\"int\",\"logicalType\":\"date\"},{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]},{\"name\":\"unionOfDateAndLocalTimestamp\",\"type\":[{\"type\":\"int\",\"logicalType\":\"date\"},{\"type\":\"long\",\"logicalType\":\"local-timestamp-millis\"}]}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
-  static {
+  private static SpecificData MODEL$ = new SpecificData();
+static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.LocalTimestampMillisConversion());
   }
@@ -77,10 +75,10 @@ public class LocalTimestampRecord extends org.apache.avro.specific.SpecificRecor
     return DECODER.decode(b);
   }
 
-  private java.time.LocalDateTime nestedTimestamp;
-  private java.time.LocalDateTime nullableNestedTimestamp;
-  private java.lang.Object nullableUnionOfDateAndLocalTimestamp;
-  private java.lang.Object unionOfDateAndLocalTimestamp;
+   private java.time.LocalDateTime nestedTimestamp;
+   private java.time.LocalDateTime nullableNestedTimestamp;
+   private java.lang.Object nullableUnionOfDateAndLocalTimestamp;
+   private java.lang.Object unionOfDateAndLocalTimestamp;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -258,7 +256,7 @@ public class LocalTimestampRecord extends org.apache.avro.specific.SpecificRecor
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -290,7 +288,7 @@ public class LocalTimestampRecord extends org.apache.avro.specific.SpecificRecor
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.LocalTimestampRecord other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.nestedTimestamp)) {
         this.nestedTimestamp = data().deepCopy(fields()[0].schema(), other.nestedTimestamp);
         fieldSetFlags()[0] = true;

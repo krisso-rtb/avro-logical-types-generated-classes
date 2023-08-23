@@ -16,12 +16,10 @@ import org.apache.avro.message.SchemaStore;
 @org.apache.avro.specific.AvroGenerated
 public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
   private static final long serialVersionUID = -2490852086508096830L;
-
-
   public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"FastSerdeLogicalTypesUndefined\",\"namespace\":\"com.rtbhouse.generated.avro\",\"doc\":\"Used in tests to confirm fast-serde supports logical-types\",\"fields\":[{\"name\":\"timeMillisField\",\"type\":\"int\"},{\"name\":\"dateField\",\"type\":\"int\"},{\"name\":\"arrayOfUnionOfDateAndTimestampMillis\",\"type\":{\"type\":\"array\",\"items\":[\"int\",\"long\"]}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
-  private static final SpecificData MODEL$ = new SpecificData();
+  private static SpecificData MODEL$ = new SpecificData();
 
   private static final BinaryMessageEncoder<FastSerdeLogicalTypesUndefined> ENCODER =
       new BinaryMessageEncoder<FastSerdeLogicalTypesUndefined>(MODEL$, SCHEMA$);
@@ -74,9 +72,9 @@ public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.Spe
     return DECODER.decode(b);
   }
 
-  private int timeMillisField;
-  private int dateField;
-  private java.util.List<java.lang.Object> arrayOfUnionOfDateAndTimestampMillis;
+   private int timeMillisField;
+   private int dateField;
+   private java.util.List<java.lang.Object> arrayOfUnionOfDateAndTimestampMillis;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -218,7 +216,7 @@ public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.Spe
 
     /** Creates a new Builder */
     private Builder() {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
     }
 
     /**
@@ -246,7 +244,7 @@ public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.Spe
      * @param other The existing instance to copy.
      */
     private Builder(com.rtbhouse.generated.avro.FastSerdeLogicalTypesUndefined other) {
-      super(SCHEMA$, MODEL$);
+      super(SCHEMA$);
       if (isValidValue(fields()[0], other.timeMillisField)) {
         this.timeMillisField = data().deepCopy(fields()[0].schema(), other.timeMillisField);
         fieldSetFlags()[0] = true;
