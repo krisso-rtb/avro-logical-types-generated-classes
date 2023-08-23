@@ -24,7 +24,6 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
   private static final SpecificData MODEL$ = new SpecificData();
   static {
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.DateConversion());
-    MODEL$.addLogicalTypeConversion(new org.apache.avro.Conversions.UUIDConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMillisConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimeMicrosConversion());
     MODEL$.addLogicalTypeConversion(new org.apache.avro.data.TimeConversions.TimestampMicrosConversion());
@@ -34,10 +33,10 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
   }
 
   private static final BinaryMessageEncoder<FastSerdeLogicalTypesTest1> ENCODER =
-      new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<FastSerdeLogicalTypesTest1>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<FastSerdeLogicalTypesTest1> DECODER =
-      new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<FastSerdeLogicalTypesTest1>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -61,7 +60,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<FastSerdeLogicalTypesTest1> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
+    return new BinaryMessageDecoder<FastSerdeLogicalTypesTest1>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -89,7 +88,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
   private java.util.List<java.time.LocalDate> nullableArrayOfDates;
   private java.util.List<java.time.LocalDate> arrayOfDates;
   private java.lang.Object unionOfDecimalOrDate;
-  private java.util.UUID uuidField;
+  private java.lang.String uuidField;
   private java.time.Instant timestampMillisField;
   private java.time.Instant timestampMicrosField;
   private java.time.LocalTime timeMillisField;
@@ -119,7 +118,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
    * @param dateField The new value for dateField
    * @param nestedLocalTimestampMillis The new value for nestedLocalTimestampMillis
    */
-  public FastSerdeLogicalTypesTest1(java.lang.Object unionOfArrayAndMap, java.util.Map<java.lang.String,java.time.Instant> timestampMillisMap, java.util.List<java.time.LocalDate> nullableArrayOfDates, java.util.List<java.time.LocalDate> arrayOfDates, java.lang.Object unionOfDecimalOrDate, java.util.UUID uuidField, java.time.Instant timestampMillisField, java.time.Instant timestampMicrosField, java.time.LocalTime timeMillisField, java.time.LocalTime timeMicrosField, java.time.LocalDate dateField, com.rtbhouse.generated.avro.LocalTimestampRecord nestedLocalTimestampMillis) {
+  public FastSerdeLogicalTypesTest1(java.lang.Object unionOfArrayAndMap, java.util.Map<java.lang.String,java.time.Instant> timestampMillisMap, java.util.List<java.time.LocalDate> nullableArrayOfDates, java.util.List<java.time.LocalDate> arrayOfDates, java.lang.Object unionOfDecimalOrDate, java.lang.String uuidField, java.time.Instant timestampMillisField, java.time.Instant timestampMicrosField, java.time.LocalTime timeMillisField, java.time.LocalTime timeMicrosField, java.time.LocalDate dateField, com.rtbhouse.generated.avro.LocalTimestampRecord nestedLocalTimestampMillis) {
     this.unionOfArrayAndMap = unionOfArrayAndMap;
     this.timestampMillisMap = timestampMillisMap;
     this.nullableArrayOfDates = nullableArrayOfDates;
@@ -134,14 +133,9 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
     this.nestedLocalTimestampMillis = nestedLocalTimestampMillis;
   }
 
-  @Override
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
-
-  @Override
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
-
   // Used by DatumWriter.  Applications should not call.
-  @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return unionOfArrayAndMap;
@@ -167,7 +161,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
       null,
       null,
       null,
-      new org.apache.avro.Conversions.UUIDConversion(),
+      null,
       new org.apache.avro.data.TimeConversions.TimestampMillisConversion(),
       new org.apache.avro.data.TimeConversions.TimestampMicrosConversion(),
       new org.apache.avro.data.TimeConversions.TimeMillisConversion(),
@@ -183,7 +177,6 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
   }
 
   // Used by DatumReader.  Applications should not call.
-  @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
@@ -192,7 +185,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
     case 2: nullableArrayOfDates = (java.util.List<java.time.LocalDate>)value$; break;
     case 3: arrayOfDates = (java.util.List<java.time.LocalDate>)value$; break;
     case 4: unionOfDecimalOrDate = value$; break;
-    case 5: uuidField = (java.util.UUID)value$; break;
+    case 5: uuidField = value$ != null ? value$.toString() : null; break;
     case 6: timestampMillisField = (java.time.Instant)value$; break;
     case 7: timestampMicrosField = (java.time.Instant)value$; break;
     case 8: timeMillisField = (java.time.LocalTime)value$; break;
@@ -292,7 +285,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
    * Gets the value of the 'uuidField' field.
    * @return The value of the 'uuidField' field.
    */
-  public java.util.UUID getUuidField() {
+  public java.lang.String getUuidField() {
     return uuidField;
   }
 
@@ -301,7 +294,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
    * Sets the value of the 'uuidField' field.
    * @param value the value to set.
    */
-  public void setUuidField(java.util.UUID value) {
+  public void setUuidField(java.lang.String value) {
     this.uuidField = value;
   }
 
@@ -453,7 +446,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
     private java.util.List<java.time.LocalDate> nullableArrayOfDates;
     private java.util.List<java.time.LocalDate> arrayOfDates;
     private java.lang.Object unionOfDecimalOrDate;
-    private java.util.UUID uuidField;
+    private java.lang.String uuidField;
     private java.time.Instant timestampMillisField;
     private java.time.Instant timestampMicrosField;
     private java.time.LocalTime timeMillisField;
@@ -787,7 +780,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
       * Gets the value of the 'uuidField' field.
       * @return The value.
       */
-    public java.util.UUID getUuidField() {
+    public java.lang.String getUuidField() {
       return uuidField;
     }
 
@@ -797,7 +790,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
       * @param value The value of 'uuidField'.
       * @return This builder.
       */
-    public com.rtbhouse.generated.avro.FastSerdeLogicalTypesTest1.Builder setUuidField(java.util.UUID value) {
+    public com.rtbhouse.generated.avro.FastSerdeLogicalTypesTest1.Builder setUuidField(java.lang.String value) {
       validate(fields()[5], value);
       this.uuidField = value;
       fieldSetFlags()[5] = true;
@@ -1104,7 +1097,7 @@ public class FastSerdeLogicalTypesTest1 extends org.apache.avro.specific.Specifi
         record.nullableArrayOfDates = fieldSetFlags()[2] ? this.nullableArrayOfDates : (java.util.List<java.time.LocalDate>) defaultValue(fields()[2]);
         record.arrayOfDates = fieldSetFlags()[3] ? this.arrayOfDates : (java.util.List<java.time.LocalDate>) defaultValue(fields()[3]);
         record.unionOfDecimalOrDate = fieldSetFlags()[4] ? this.unionOfDecimalOrDate :  defaultValue(fields()[4]);
-        record.uuidField = fieldSetFlags()[5] ? this.uuidField : (java.util.UUID) defaultValue(fields()[5]);
+        record.uuidField = fieldSetFlags()[5] ? this.uuidField : (java.lang.String) defaultValue(fields()[5]);
         record.timestampMillisField = fieldSetFlags()[6] ? this.timestampMillisField : (java.time.Instant) defaultValue(fields()[6]);
         record.timestampMicrosField = fieldSetFlags()[7] ? this.timestampMicrosField : (java.time.Instant) defaultValue(fields()[7]);
         record.timeMillisField = fieldSetFlags()[8] ? this.timeMillisField : (java.time.LocalTime) defaultValue(fields()[8]);

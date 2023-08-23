@@ -29,10 +29,10 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
   }
 
   private static final BinaryMessageEncoder<FastSerdeLogicalTypesDefined> ENCODER =
-      new BinaryMessageEncoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageEncoder<FastSerdeLogicalTypesDefined>(MODEL$, SCHEMA$);
 
   private static final BinaryMessageDecoder<FastSerdeLogicalTypesDefined> DECODER =
-      new BinaryMessageDecoder<>(MODEL$, SCHEMA$);
+      new BinaryMessageDecoder<FastSerdeLogicalTypesDefined>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
@@ -56,7 +56,7 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
   public static BinaryMessageDecoder<FastSerdeLogicalTypesDefined> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<>(MODEL$, SCHEMA$, resolver);
+    return new BinaryMessageDecoder<FastSerdeLogicalTypesDefined>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
@@ -102,14 +102,9 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
     this.arrayOfUnionOfDateAndTimestampMillis = arrayOfUnionOfDateAndTimestampMillis;
   }
 
-  @Override
   public org.apache.avro.specific.SpecificData getSpecificData() { return MODEL$; }
-
-  @Override
   public org.apache.avro.Schema getSchema() { return SCHEMA$; }
-
   // Used by DatumWriter.  Applications should not call.
-  @Override
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return timeMillisField;
@@ -133,7 +128,6 @@ public class FastSerdeLogicalTypesDefined extends org.apache.avro.specific.Speci
   }
 
   // Used by DatumReader.  Applications should not call.
-  @Override
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
