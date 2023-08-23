@@ -144,7 +144,7 @@ static {
     case 9: return timeMicrosField;
     case 10: return dateField;
     case 11: return nestedLocalTimestampMillis;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
@@ -186,7 +186,7 @@ static {
     case 9: timeMicrosField = (java.time.LocalTime)value$; break;
     case 10: dateField = (java.time.LocalDate)value$; break;
     case 11: nestedLocalTimestampMillis = (com.rtbhouse.generated.avro.LocalTimestampRecord)value$; break;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 

@@ -109,22 +109,8 @@ static {
     case 1: return nullableNestedTimestamp;
     case 2: return nullableUnionOfDateAndLocalTimestamp;
     case 3: return unionOfDateAndLocalTimestamp;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
-  }
-
-  private static final org.apache.avro.Conversion<?>[] conversions =
-      new org.apache.avro.Conversion<?>[] {
-      null,
-      null,
-      null,
-      null,
-      null
-  };
-
-  @Override
-  public org.apache.avro.Conversion<?> getConversion(int field) {
-    return conversions[field];
   }
 
   // Used by DatumReader.  Applications should not call.
@@ -135,7 +121,7 @@ static {
     case 1: nullableNestedTimestamp = (java.lang.Long)value$; break;
     case 2: nullableUnionOfDateAndLocalTimestamp = value$; break;
     case 3: unionOfDateAndLocalTimestamp = value$; break;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 

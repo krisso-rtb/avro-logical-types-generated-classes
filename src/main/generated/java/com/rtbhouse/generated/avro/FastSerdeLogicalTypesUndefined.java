@@ -103,7 +103,7 @@ public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.Spe
     case 0: return timeMillisField;
     case 1: return dateField;
     case 2: return arrayOfUnionOfDateAndTimestampMillis;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
@@ -114,7 +114,7 @@ public class FastSerdeLogicalTypesUndefined extends org.apache.avro.specific.Spe
     case 0: timeMillisField = (java.lang.Integer)value$; break;
     case 1: dateField = (java.lang.Integer)value$; break;
     case 2: arrayOfUnionOfDateAndTimestampMillis = (java.util.List<java.lang.Object>)value$; break;
-    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
+    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
   }
 
